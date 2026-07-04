@@ -48,13 +48,14 @@
       margin-top: 30px;
     }
 
-    /* Horizontal connector line trimmed to box edges */
+    /* Horizontal connector line precisely aligned with title vertical line */
     .wbs-container::before {
       content: "";
       position: absolute;
       top: -20px;
-      left: calc(50% - 480px); /* adjust based on total width */
-      width: 960px; /* spans exactly across boxes */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 880px; /* adjust width to match total box span */
       height: 2px;
       background: #000;
     }
