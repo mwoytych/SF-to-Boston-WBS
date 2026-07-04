@@ -16,10 +16,10 @@
     .wbs-title {
       display: inline-block;
       background: #f9f9f9;
-      border: 2px solid #ccc;
+      border: 2px solid #000;
       border-radius: 8px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      padding: 10px 25px;
+      padding: 12px 30px;
       font-size: 18px;
       font-weight: 700;
       color: #222;
@@ -32,13 +32,14 @@
       content: "";
       position: absolute;
       left: 50%;
-      bottom: -30px;
+      bottom: -20px; /* adjusted to connect cleanly */
       width: 2px;
-      height: 30px;
+      height: 20px; /* shortened for perfect alignment */
       background: #000;
       transform: translateX(-50%);
     }
 
+    /* Container for lower boxes */
     .wbs-container {
       position: relative;
       display: flex;
@@ -48,22 +49,23 @@
       margin-top: 30px;
     }
 
-    /* Horizontal connector line precisely aligned with title vertical line */
+    /* Horizontal connector line aligned with title vertical line */
     .wbs-container::before {
       content: "";
       position: absolute;
-      top: -20px;
+      top: -20px; /* matches bottom of title line */
       left: 50%;
       transform: translateX(-50%);
-      width: 880px; /* adjust width to match total box span */
+      width: 880px; /* spans exactly across boxes */
       height: 2px;
       background: #000;
     }
 
+    /* Lower boxes */
     .wbs-box {
       width: 220px;
       background: #f9f9f9;
-      border: 2px solid #ccc;
+      border: 2px solid #000;
       border-radius: 8px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.1);
       padding: 10px 15px;
@@ -136,30 +138,4 @@
     </div>
 
     <div class="wbs-box">
-      <div class="wbs-subtitle">1.3 Travel Preparation</div>
-      <ul class="wbs-list">
-        <li><span class="wbs-code">1.3.1</span>Book flights and hotels</li>
-        <li><span class="wbs-code">1.3.2</span>Arrange ground transportation</li>
-        <li><span class="wbs-code">1.3.3</span>Prepare packing list & documents</li>
-      </ul>
-    </div>
-
-    <div class="wbs-box">
-      <div class="wbs-subtitle">1.4 Execution Phase</div>
-      <ul class="wbs-list">
-        <li><span class="wbs-code">1.4.1</span>Departure from San Francisco</li>
-        <li><span class="wbs-code">1.4.2</span>Transit and arrival in Boston</li>
-        <li><span class="wbs-code">1.4.3</span>On-site activities & meetings</li>
-      </ul>
-    </div>
-
-    <div class="wbs-box">
-      <div class="wbs-subtitle">1.5 Post-Trip Activities</div>
-      <ul class="wbs-list">
-        <li><span class="wbs-code">1.5.1</span>Expense reporting & reconciliation</li>
-        <li><span class="wbs-code">1.5.2</span>Trip review & lessons learned</li>
-      </ul>
-    </div>
-  </div>
-</body>
-</html>
+      <div class="wbs-subtitle">1.3 Travel Preparation
