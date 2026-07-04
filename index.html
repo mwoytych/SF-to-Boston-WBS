@@ -12,13 +12,15 @@
       text-align: center;
     }
 
-    /* Bubble around title */
+    /* Top box styled like lower boxes */
     .wbs-title {
       display: inline-block;
-      border: 3px solid #000;
-      border-radius: 25px;
+      background: #f9f9f9;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
       padding: 10px 25px;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       color: #222;
       position: relative;
@@ -108,19 +110,14 @@
         margin: 0;
         padding: 20px;
       }
-      .wbs-box {
-        width: 200px;
-        font-size: 12px;
+      .wbs-box, .wbs-title {
         box-shadow: none;
         border: 1px solid #000;
       }
-      .wbs-title,
       .wbs-title::after,
       .wbs-container::before,
       .wbs-box::before {
-        border-color: #000;
-        background: none;
-        color: #000;
+        background: #000;
       }
     }
   </style>
