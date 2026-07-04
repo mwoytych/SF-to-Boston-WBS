@@ -31,9 +31,9 @@
       content: "";
       position: absolute;
       left: 50%;
-      bottom: -25px;
+      bottom: -24px; /* adjusted to connect cleanly */
       width: 2px;
-      height: 25px;
+      height: 24px; /* matches horizontal line top */
       background: #000;
       transform: translateX(-50%);
     }
@@ -47,14 +47,14 @@
       margin-top: 20px;
     }
 
-    /* Horizontal line — EXACTLY touching the vertical line */
+    /* Horizontal line — perfectly aligned with vertical line */
     .wbs-container::before {
       content: "";
       position: absolute;
-      top: -25px;              /* EXACT match to vertical line bottom */
-      left: 50%;               /* center on vertical line */
+      top: -24px; /* same as vertical line bottom */
+      left: 50%;
       transform: translateX(-50%);
-      width: 880px;            /* spans exactly across boxes */
+      width: 880px; /* spans exactly across boxes */
       height: 2px;
       background: #000;
     }
@@ -75,10 +75,10 @@
     .wbs-box::before {
       content: "";
       position: absolute;
-      top: -25px;
+      top: -24px;
       left: 50%;
       width: 2px;
-      height: 25px;
+      height: 24px;
       background: #000;
       transform: translateX(-50%);
     }
@@ -103,7 +103,6 @@
       margin-right: 4px;
     }
 
-    /* Print optimization */
     @media print {
       body {
         margin: 0;
