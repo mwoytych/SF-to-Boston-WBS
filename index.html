@@ -3,83 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <title>SF to Boston Trip – Master WBS</title>
+
 <style>
   body {
     font-family: Arial, sans-serif;
     background: #f9f9f9;
     text-align: center;
   }
+
   .tree {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 40px;
   }
+
   .level {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
     position: relative;
+    margin: 40px 0;
   }
+
   .box {
     border: 2px solid #4a90e2;
     border-radius: 6px;
-    padding: 8px 12px;
-    margin: 10px;
+    padding: 10px 16px;
+    margin: 10px 30px;
     background-color: #eaf3ff;
     font-weight: bold;
+    min-width: 220px;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   }
+
   .level-1 .box { background-color: #cce5ff; }
   .level-2 .box { background-color: #d4edda; }
   .level-3 .box { background-color: #fff3cd; }
 
-  /* Connecting lines */
+  /* Vertical line from parent to children */
   .level::before {
     content: "";
     position: absolute;
-    top: -20px;
+    top: -40px;
     left: 50%;
     width: 2px;
-    height: 20px;
+    height: 40px;
     background: #4a90e2;
     transform: translateX(-50%);
   }
-  .level-2::before { display: none; } /* Hide top line for first branch level */
+
+  /* Horizontal connector line between siblings */
   .connector {
     position: absolute;
-    top: -20px;
-    width: 100%;
+    top: -40px;
+    left: 0;
+    right: 0;
     height: 2px;
     background: #4a90e2;
   }
+
+  /* Remove top line for first level */
+  .level-1::before {
+    display: none;
+  }
 </style>
 </head>
+
 <body>
-  <div class="tree">
-    <div class="level level-1">
-      <div class="box">SF to Boston Trip – Master WBS</div>
-    </div>
 
-    <div class="level level-2">
-      <div class="box">Project Planning</div>
-      <div class="box">Travel Preparation</div>
-      <div class="box">Execution Phase</div>
-      <div class="box">Post-Trip Activities</div>
-    </div>
+<div class="tree">
 
-    <div class="level level-3">
-      <div class="box">Define scope & objectives</div>
-      <div class="box">Estimate budget (travel, lodging, meals)</div>
-      <div class="box">Develop schedule & milestones</div>
-      <div class="box">Book flights and hotels</div>
-      <div class="box">Arrange ground transportation</div>
-      <div class="box">Prepare packing list & documents</div>
-      <div class="box">Departure from San Francisco</div>
-      <div class="box">Transit and arrival in Boston</div>
-      <div class="box">On-site activities & meetings</div>
-      <div class="box">Expense reporting & reconciliation</div>
-      <div class="box">Trip review & lessons learned</div>
-    </div>
+  <!-- MASTER NODE -->
+  <div class="level level-1">
+    <div class="box">SF to Boston Trip – Master WBS</div>
   </div>
+
+  <!-- LEVEL 2 CATEGORIES -->
+  <div class="level level-2">
+    <div class="connector"></div>
+    <div class="box">1. Project Planning</div>
+    <div class="box">2. Travel Preparation</div>
+    <div class="box">3. Execution Phase</div>
+    <div class="box">4. Post‑Trip Activities</div>
+  </div>
+
+  <!-- LEVEL 3 SUBTASKS -->
+  <div class="level level-3">
+    <div class="connector"></div>
+
+    <!-- Project Planning -->
+    <div class="box">1.1 Define scope & objectives</div>
+    <div class="box">1.2 Estimate budget (travel, lodging, meals)</div>
+    <div class="box">1.3 Develop schedule & milestones</div>
+
+    <!-- Travel Preparation -->
+    <div class="box">2.1 Book flights and hotels</div>
+    <div class="box">2.2 Arrange ground transportation</div>
+    <div class="box">2.3 Prepare packing list & documents</div>
+
+    <!-- Execution Phase -->
+    <div class="box">3.1 Departure from San Francisco</div>
+    <div class="box">3.2 Transit and arrival in Boston</div>
+    <div class="box">3.3 On‑site activities & meetings</div>
+
+    <!-- Post‑Trip Activities -->
+    <div class="box">4.1 Expense reporting & reconciliation</div>
+    <div class="box">4.2 Trip review & lessons learned</div>
+  </div>
+
+</div>
+
 </body>
 </html>
