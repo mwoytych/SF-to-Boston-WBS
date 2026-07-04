@@ -13,10 +13,23 @@
     }
 
     h1 {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
-      color: #333;
-      margin-bottom: 50px;
+      color: #222;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    /* Vertical line from title to horizontal connector */
+    h1::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 2px;
+      height: 30px;
+      background: #000;
+      transform: translateX(-50%);
     }
 
     .wbs-container {
@@ -25,6 +38,19 @@
       justify-content: center;
       align-items: flex-start;
       gap: 40px;
+      margin-top: 30px;
+    }
+
+    /* Horizontal connector line */
+    .wbs-container::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #000;
+      margin: 0 60px;
     }
 
     .wbs-box {
@@ -37,6 +63,18 @@
       text-align: left;
       font-size: 13px;
       position: relative;
+    }
+
+    /* Vertical connectors from horizontal line to each box */
+    .wbs-box::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #000;
+      transform: translateX(-50%);
     }
 
     .wbs-title {
@@ -60,35 +98,6 @@
       margin-right: 4px;
     }
 
-    /* Connecting lines */
-    .connector {
-      position: absolute;
-      top: -25px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #333;
-      z-index: 1;
-    }
-
-    .connector::before,
-    .connector::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 2px;
-      height: 25px;
-      background: #333;
-    }
-
-    .connector::before {
-      left: 0; /* aligns with left edge of first box */
-    }
-
-    .connector::after {
-      right: 0; /* aligns with right edge of last box */
-    }
-
     @media print {
       body {
         margin: 0;
@@ -100,10 +109,10 @@
         box-shadow: none;
         border: 1px solid #000;
       }
-      .connector,
-      .connector::before,
-      .connector::after {
-        background: #000; /* ensures visibility in print */
+      h1::after,
+      .wbs-container::before,
+      .wbs-box::before {
+        background: #000;
       }
     }
   </style>
@@ -112,8 +121,6 @@
   <h1>1. SF to Boston Trip – Master WBS</h1>
 
   <div class="wbs-container">
-    <div class="connector"></div>
-
     <div class="wbs-box">
       <div class="wbs-title">1.2 Project Planning</div>
       <ul class="wbs-list">
@@ -146,3 +153,8 @@
       <ul class="wbs-list">
         <li><span class="wbs-code">1.5.1</span>Expense reporting & reconciliation</li>
         <li><span class="wbs-code">1.5.2</span>Trip review & lessons learned</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
