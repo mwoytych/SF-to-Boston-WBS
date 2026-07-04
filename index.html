@@ -14,9 +14,9 @@
 
     h1 {
       font-size: 20px;
-      font-weight: bold;
-      color: #555;
-      margin-bottom: 40px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 50px;
     }
 
     .wbs-container {
@@ -24,7 +24,6 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      flex-wrap: nowrap;
       gap: 40px;
     }
 
@@ -41,8 +40,8 @@
     }
 
     .wbs-title {
-      font-weight: bold;
-      color: #333;
+      font-weight: 700;
+      color: #222;
       margin-bottom: 6px;
     }
 
@@ -57,30 +56,37 @@
     }
 
     .wbs-code {
-      font-weight: bold;
+      font-weight: 700;
       margin-right: 4px;
     }
 
     /* Connecting lines */
-    .wbs-container::before {
-      content: "";
+    .connector {
       position: absolute;
-      top: -20px;
-      left: 10%;
-      width: 80%;
+      top: -25px;
+      left: 0;
+      right: 0;
       height: 2px;
-      background: #555;
+      background: #333;
+      z-index: 1;
     }
 
-    .wbs-box::before {
+    .connector::before,
+    .connector::after {
       content: "";
       position: absolute;
-      top: -20px;
-      left: 50%;
+      top: 0;
       width: 2px;
-      height: 20px;
-      background: #555;
-      transform: translateX(-50%);
+      height: 25px;
+      background: #333;
+    }
+
+    .connector::before {
+      left: 0; /* aligns with left edge of first box */
+    }
+
+    .connector::after {
+      right: 0; /* aligns with right edge of last box */
     }
 
     @media print {
@@ -88,12 +94,16 @@
         margin: 0;
         padding: 20px;
       }
-      .wbs-container {
-        gap: 30px;
-      }
       .wbs-box {
         width: 200px;
         font-size: 12px;
+        box-shadow: none;
+        border: 1px solid #000;
+      }
+      .connector,
+      .connector::before,
+      .connector::after {
+        background: #000; /* ensures visibility in print */
       }
     }
   </style>
@@ -102,6 +112,8 @@
   <h1>1. SF to Boston Trip – Master WBS</h1>
 
   <div class="wbs-container">
+    <div class="connector"></div>
+
     <div class="wbs-box">
       <div class="wbs-title">1.2 Project Planning</div>
       <ul class="wbs-list">
@@ -134,9 +146,3 @@
       <ul class="wbs-list">
         <li><span class="wbs-code">1.5.1</span>Expense reporting & reconciliation</li>
         <li><span class="wbs-code">1.5.2</span>Trip review & lessons learned</li>
-        <li><span class="wbs-code">1.5.3</span>Update project documentation</li>
-      </ul>
-    </div>
-  </div>
-</body>
-</html>
