@@ -47,14 +47,14 @@
       margin-top: 20px;
     }
 
-    /* Horizontal line — trimmed to exact box edges */
+    /* Horizontal line — EXACTLY touching the vertical line */
     .wbs-container::before {
       content: "";
       position: absolute;
-      top: -25px;
-      left: 50%;
+      top: -25px;              /* EXACT match to vertical line bottom */
+      left: 50%;               /* center on vertical line */
       transform: translateX(-50%);
-      width: 880px;   /* Adjust if you change box width or spacing */
+      width: 880px;            /* spans exactly across boxes */
       height: 2px;
       background: #000;
     }
