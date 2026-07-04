@@ -12,13 +12,12 @@
       text-align: center;
     }
 
-    /* Top box styled like lower boxes */
+    /* Top box */
     .wbs-title {
       display: inline-block;
       background: #f9f9f9;
       border: 2px solid #000;
       border-radius: 8px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
       padding: 12px 30px;
       font-size: 18px;
       font-weight: 700;
@@ -27,14 +26,14 @@
       margin-bottom: 60px;
     }
 
-    /* Vertical line from title to horizontal connector */
+    /* Vertical line from top box to horizontal line */
     .wbs-title::after {
       content: "";
       position: absolute;
       left: 50%;
-      bottom: -20px; /* adjusted to connect cleanly */
+      bottom: -25px;
       width: 2px;
-      height: 20px; /* shortened for perfect alignment */
+      height: 25px;
       background: #000;
       transform: translateX(-50%);
     }
@@ -44,19 +43,18 @@
       position: relative;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
       gap: 40px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
-    /* Horizontal connector line aligned with title vertical line */
+    /* Horizontal line — trimmed to exact box edges */
     .wbs-container::before {
       content: "";
       position: absolute;
-      top: -20px; /* matches bottom of title line */
+      top: -25px;
       left: 50%;
       transform: translateX(-50%);
-      width: 880px; /* spans exactly across boxes */
+      width: 880px;   /* Adjust if you change box width or spacing */
       height: 2px;
       background: #000;
     }
@@ -67,7 +65,6 @@
       background: #f9f9f9;
       border: 2px solid #000;
       border-radius: 8px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
       padding: 10px 15px;
       text-align: left;
       font-size: 13px;
@@ -78,17 +75,16 @@
     .wbs-box::before {
       content: "";
       position: absolute;
-      top: -20px;
+      top: -25px;
       left: 50%;
       width: 2px;
-      height: 20px;
+      height: 25px;
       background: #000;
       transform: translateX(-50%);
     }
 
     .wbs-subtitle {
       font-weight: 700;
-      color: #222;
       margin-bottom: 6px;
     }
 
@@ -107,12 +103,13 @@
       margin-right: 4px;
     }
 
+    /* Print optimization */
     @media print {
       body {
         margin: 0;
         padding: 20px;
       }
-      .wbs-box, .wbs-title {
+      .wbs-title, .wbs-box {
         box-shadow: none;
         border: 1px solid #000;
       }
@@ -125,17 +122,49 @@
   </style>
 </head>
 <body>
+
+  <!-- TOP LEVEL -->
   <div class="wbs-title">1. SF to Boston Trip – Master WBS</div>
 
+  <!-- SECOND LEVEL -->
   <div class="wbs-container">
+
     <div class="wbs-box">
       <div class="wbs-subtitle">1.2 Project Planning</div>
       <ul class="wbs-list">
         <li><span class="wbs-code">1.2.1</span>Define scope & objectives</li>
-        <li><span class="wbs-code">1.2.2</span>Estimate budget (travel, lodging, meals)</li>
+        <li><span class="wbs-code">1.2.2</span>Estimate budget</li>
         <li><span class="wbs-code">1.2.3</span>Develop schedule & milestones</li>
       </ul>
     </div>
 
     <div class="wbs-box">
-      <div class="wbs-subtitle">1.3 Travel Preparation
+      <div class="wbs-subtitle">1.3 Travel Preparation</div>
+      <ul class="wbs-list">
+        <li><span class="wbs-code">1.3.1</span>Book flights & hotels</li>
+        <li><span class="wbs-code">1.3.2</span>Arrange transportation</li>
+        <li><span class="wbs-code">1.3.3</span>Prepare packing list</li>
+      </ul>
+    </div>
+
+    <div class="wbs-box">
+      <div class="wbs-subtitle">1.4 Execution Phase</div>
+      <ul class="wbs-list">
+        <li><span class="wbs-code">1.4.1</span>Depart San Francisco</li>
+        <li><span class="wbs-code">1.4.2</span>Arrive in Boston</li>
+        <li><span class="wbs-code">1.4.3</span>On‑site activities</li>
+      </ul>
+    </div>
+
+    <div class="wbs-box">
+      <div class="wbs-subtitle">1.5 Post‑Trip Activities</div>
+      <ul class="wbs-list">
+        <li><span class="wbs-code">1.5.1</span>Expense reporting</li>
+        <li><span class="wbs-code">1.5.2</span>Trip review & lessons learned</li>
+      </ul>
+    </div>
+
+  </div>
+
+</body>
+</html>
