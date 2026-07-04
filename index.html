@@ -2,71 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SF to Boston Trip – WBS Mindmap</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <title>SF to Boston Trip – Master WBS</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #fafafa; }
-    .link { fill: none; stroke: #aaa; stroke-width: 1.5px; }
-    .node circle { fill: #fff; stroke: #007acc; stroke-width: 2px; }
-    .node text { font-size: 12px; fill: #333; }
+    body { font-family: Arial, sans-serif; background: #f9f9f9; }
+    .wbs-box {
+      border: 2px solid #4a90e2;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin: 6px;
+      background-color: #eaf3ff;
+      text-align: center;
+      font-weight: bold;
+    }
+    .level-1 { background-color: #cce5ff; }
+    .level-2 { background-color: #d4edda; }
+    .level-3 { background-color: #fff3cd; }
+    .tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .branch {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   </style>
 </head>
 <body>
-  <svg id="mindmap" width="1000" height="700"></svg>
-  <script>
-    const data = {
-      name: "SF to Boston Trip – Master WBS",
-      children: [
-        { name: "Project Planning", children: [
-          { name: "Define scope & objectives" },
-          { name: "Estimate budget (travel, lodging, meals)" },
-          { name: "Develop schedule & milestones" }
-        ]},
-        { name: "Travel Preparation", children: [
-          { name: "Book flights and hotels" },
-          { name: "Arrange ground transportation" },
-          { name: "Prepare packing list & documents" }
-        ]},
-        { name: "Execution Phase", children: [
-          { name: "Departure from San Francisco" },
-          { name: "Transit and arrival in Boston" },
-          { name: "On-site activities & meetings" }
-        ]},
-        { name: "Post-Trip Activities", children: [
-          { name: "Expense reporting & reconciliation" },
-          { name: "Trip review & lessons learned" }
-        ]}
-      ]
-    };
+  <div class="tree">
+    <div class="wbs-box level-1">SF to Boston Trip – Master WBS</div>
 
-    const svg = d3.select("#mindmap"),
-          width = +svg.attr("width"),
-          height = +svg.attr("height"),
-          g = svg.append("g").attr("transform", `translate(${width/2},${height/2})`);
+    <div class="branch">
+      <div class="wbs-box level-2">Project Planning</div>
+      <div class="wbs-box level-2">Travel Preparation</div>
+      <div class="wbs-box level-2">Execution Phase</div>
+      <div class="wbs-box level-2">Post-Trip Activities</div>
+    </div>
 
-    const root = d3.hierarchy(data);
-    const tree = d3.tree().size([2 * Math.PI, Math.min(width, height) / 2 - 80]);
-    tree(root);
-
-    g.selectAll(".link")
-      .data(root.links())
-      .enter().append("path")
-      .attr("class", "link")
-      .attr("d", d3.linkRadial().angle(d => d.x).radius(d => d.y));
-
-    const node = g.selectAll(".node")
-      .data(root.descendants())
-      .enter().append("g")
-      .attr("class", "node")
-      .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y},0)`);
-
-    node.append("circle").attr("r", 18);
-    node.append("text")
-      .attr("dy", "0.31em")
-      .attr("x", d => d.x < Math.PI ? 22 : -22)
-      .attr("text-anchor", d => d.x < Math.PI ? "start" : "end")
-      .attr("transform", d => d.x >= Math.PI ? "rotate(180)" : null)
-      .text(d => d.data.name);
-  </script>
+    <div class="branch">
+      <div class="wbs-box level-3">Define scope & objectives</div>
+      <div class="wbs-box level-3">Estimate budget (travel, lodging, meals)</div>
+      <div class="wbs-box level-3">Develop schedule & milestones</div>
+      <div class="wbs-box level-3">Book flights and hotels</div>
+      <div class="wbs-box level-3">Arrange ground transportation</div>
+      <div class="wbs-box level-3">Prepare packing list & documents</div>
+      <div class="wbs-box level-3">Departure from San Francisco</div>
+      <div class="wbs-box level-3">Transit and arrival in Boston</div>
+      <div class="wbs-box level-3">On-site activities & meetings</div>
+      <div class="wbs-box level-3">Expense reporting & reconciliation</div>
+      <div class="wbs-box level-3">Trip review & lessons learned</div>
+    </div>
+  </div>
 </body>
 </html>
