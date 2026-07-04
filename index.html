@@ -1,211 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>San Francisco → Boston Road Trip WBS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>SF to Boston WBS</title>
   <style>
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fb;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
       margin: 0;
-      padding: 2rem;
-      color: #1f2933;
-    }
-
-    h1 {
+      padding: 20px;
       text-align: center;
-      margin-bottom: 2rem;
-      color: #00264d;
     }
 
     .wbs-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .wbs-level1 {
-      background: #00264d;
-      color: #ffffff;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
+      display: inline-block;
       text-align: center;
     }
 
-    .wbs-phase {
-      background: #336699;
-      color: #ffffff;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      font-weight: 600;
-      margin-top: 0.5rem;
+    .wbs-main {
+      background: #4caf50;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      display: inline-block;
     }
 
-    .wbs-phase:nth-child(2) { background: #2e8b57; }
-    .wbs-phase:nth-child(3) { background: #4682b4; }
-    .wbs-phase:nth-child(4) { background: #daa520; }
-    .wbs-phase:nth-child(5) { background: #b22222; }
-    .wbs-phase:nth-child(6) { background: #6a5acd; }
-
-    .wbs-tasks {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 0.75rem;
-      margin-top: 0.75rem;
+    .wbs-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .wbs-task {
+    .wbs-box {
+      min-width: 180px;
       background: #ffffff;
       border-radius: 6px;
-      padding: 0.6rem 0.8rem;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
-      border-left: 4px solid #cbd2e8;
-      font-size: 0.95rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      padding: 10px;
+      text-align: left;
+      font-size: 13px;
     }
 
-    .wbs-task strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      color: #1f2933;
+    .wbs-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+      padding: 4px 6px;
+      border-radius: 4px;
+      color: #fff;
     }
 
-    footer {
-      margin-top: 2.5rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #6b7280;
+    /* Color bands similar to the example */
+    .c-planning   { background: #2e7d32; }
+    .c-prep       { background: #0288d1; }
+    .c-execution  { background: #fbc02d; }
+    .c-post       { background: #8e24aa; }
+
+    .wbs-list {
+      list-style: none;
+      padding-left: 10px;
+      margin: 4px 0 0 0;
+    }
+
+    .wbs-list li {
+      margin: 2px 0;
+    }
+
+    .wbs-code {
+      font-weight: bold;
+      margin-right: 4px;
     }
   </style>
 </head>
 <body>
-  <h1>San Francisco → Boston Road Trip<br>Work Breakdown Structure</h1>
-
   <div class="wbs-container">
-    <div class="wbs-level1">
-      San Francisco → Boston Road Trip – Plan Tasks
+    <!-- Level 1: Master WBS -->
+    <div class="wbs-main">
+      1. SF to Boston Trip – Master WBS
     </div>
 
-    <!-- 1. Trip Planning -->
-    <section>
-      <div class="wbs-phase">1. Trip Planning</div>
-      <div class="wbs-tasks">
-        <div class="wbs-task">
-          <strong>1.1 Confirm Travel Dates</strong>
-          Decide start and end dates for the cross‑country trip.
+    <!-- Level 2 & 3: Branches -->
+    <div class="wbs-row">
+      <!-- 1.2 Project Planning -->
+      <div class="wbs-box">
+        <div class="wbs-title c-planning">
+          1.2 Project Planning
         </div>
-        <div class="wbs-task">
-          <strong>1.2 Set Budget</strong>
-          Establish total budget for fuel, lodging, food, and contingencies.
-        </div>
-        <div class="wbs-task">
-          <strong>1.3 Check Weather Across States</strong>
-          Review forecast and seasonal conditions along the planned route.
-        </div>
+        <ul class="wbs-list">
+          <li><span class="wbs-code">1.2.1</span>Define scope & objectives</li>
+          <li><span class="wbs-code">1.2.2</span>Estimate budget (travel, lodging, meals)</li>
+          <li><span class="wbs-code">1.2.3</span>Develop schedule & milestones</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- 2. Route & Stops -->
-    <section>
-      <div class="wbs-phase">2. Route & Stops</div>
-      <div class="wbs-tasks">
-        <div class="wbs-task">
-          <strong>2.1 Choose Main Route (I‑80 / I‑90)</strong>
-          Select primary highways and overall path from San Francisco to Boston.
+      <!-- 1.3 Travel Preparation -->
+      <div class="wbs-box">
+        <div class="wbs-title c-prep">
+          1.3 Travel Preparation
         </div>
-        <div class="wbs-task">
-          <strong>2.2 Identify Overnight Stops</strong>
-          Plan cities or towns for overnight stays along the route.
-        </div>
-        <div class="wbs-task">
-          <strong>2.3 Plan Fuel & Food Stops</strong>
-          Map out regular fuel, rest, and meal stops.
-        </div>
+        <ul class="wbs-list">
+          <li><span class="wbs-code">1.3.1</span>Book flights and hotels</li>
+          <li><span class="wbs-code">1.3.2</span>Arrange ground transportation</li>
+          <li><span class="wbs-code">1.3.3</span>Prepare packing list & documents</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- 3. Vehicle Preparation -->
-    <section>
-      <div class="wbs-phase">3. Vehicle Preparation</div>
-      <div class="wbs-tasks">
-        <div class="wbs-task">
-          <strong>3.1 Oil Change & Fluids</strong>
-          Complete oil change and check coolant, brake, and windshield fluids.
+      <!-- 1.4 Execution Phase -->
+      <div class="wbs-box">
+        <div class="wbs-title c-execution">
+          1.4 Execution Phase
         </div>
-        <div class="wbs-task">
-          <strong>3.2 Tire Check / Spare</strong>
-          Inspect tire tread, pressure, and ensure spare and jack are ready.
-        </div>
-        <div class="wbs-task">
-          <strong>3.3 Emergency Kit</strong>
-          Assemble emergency kit (first aid, tools, jumper cables, flashlight).
-        </div>
+        <ul class="wbs-list">
+          <li><span class="wbs-code">1.4.1</span>Departure from San Francisco</li>
+          <li><span class="wbs-code">1.4.2</span>Transit and arrival in Boston</li>
+          <li><span class="wbs-code">1.4.3</span>On‑site activities & meetings</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- 4. Packing & Supplies -->
-    <section>
-      <div class="wbs-phase">4. Packing & Supplies</div>
-      <div class="wbs-tasks">
-        <div class="wbs-task">
-          <strong>4.1 Clothing & Essentials</strong>
-          Pack clothing, toiletries, and personal essentials for the trip.
+      <!-- 1.5 Post‑Trip Activities -->
+      <div class="wbs-box">
+        <div class="wbs-title c-post">
+          1.5 Post‑Trip Activities
         </div>
-        <div class="wbs-task">
-          <strong>4.2 Snacks & Water</strong>
-          Prepare non‑perishable snacks and sufficient drinking water.
-        </div>
-        <div class="wbs-task">
-          <strong>4.3 Chargers / Navigation Gear</strong>
-          Gather phone chargers, GPS/navigation devices, and mounts.
-        </div>
+        <ul class="wbs-list">
+          <li><span class="wbs-code">1.5.1</span>Expense reporting & reconciliation</li>
+          <li><span class="wbs-code">1.5.2</span>Trip review & lessons learned</li>
+          <li><span class="wbs-code">1.5.3</span>Update project documentation</li>
+        </ul>
       </div>
-    </section>
-
-    <!-- 5. Travel Execution -->
-    <section>
-      <div class="wbs-phase">5. Travel Execution</div>
-      <div class="wbs-tasks">
-        <div class="wbs-task">
-          <strong>5.1 Depart San Francisco</strong>
-          Begin the trip and clear initial departure checklist.
-        </div>
-        <div class="wbs-task">
-          <strong>5.2 Daily Driving Blocks</strong>
-          Define daily driving durations and rest intervals.
-        </div>
-        <div class="wbs-task">
-          <strong>5.3 Track Mileage & Fuel</strong>
-          Log miles driven, fuel usage, and costs each day.
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Arrival & Wrap-Up -->
-    <section>
-      <div class="wbs-phase">6. Arrival & Wrap‑Up</div>
-      <div class="wbs-tasks">
-        <div class="wbs-task">
-          <strong>6.1 Arrival in Boston</strong>
-          Complete final leg and confirm arrival at destination.
-        </div>
-        <div class="wbs-task">
-          <strong>6.2 Unpack & Rest</strong>
-          Unload vehicle and rest after the cross‑country drive.
-        </div>
-        <div class="wbs-task">
-          <strong>6.3 Trip Review & Notes</strong>
-          Reflect on the trip, capture lessons learned, and organize receipts.
-        </div>
-      </div>
-    </section>
+    </div>
   </div>
-
-  <footer>
-    San Francisco → Boston Road Trip WBS &middot; Project Management Practice
-  </footer>
 </body>
 </html>
