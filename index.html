@@ -1,117 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SF to Boston Trip – Master WBS</title>
+  <meta charset="UTF-8">
+  <title>SF to Boston Trip – Phase‑Based WBS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    text-align: center;
-  }
+    .wbs-title {
+      display: inline-block;
+      background: #f9f9f9;
+      border: 2px solid #000;
+      border-radius: 8px;
+      padding: 12px 30px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #222;
+      position: relative;
+      margin-bottom: 60px;
+    }
 
-  .tree {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
-  }
+    .wbs-title::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -25px;
+      width: 2px;
+      height: 25px;
+      background: #000;
+      transform: translateX(-50%);
+    }
 
-  .level {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    margin: 40px 0;
-  }
+    .wbs-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 20px;
+    }
 
-  .box {
-    border: 2px solid #4a90e2;
-    border-radius: 6px;
-    padding: 10px 16px;
-    margin: 10px 30px;
-    background-color: #eaf3ff;
-    font-weight: bold;
-    min-width: 220px;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  }
+    .wbs-container::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 880px;
+      height: 2px;
+      background: #000;
+    }
 
-  .level-1 .box { background-color: #cce5ff; }
-  .level-2 .box { background-color: #d4edda; }
-  .level-3 .box { background-color: #fff3cd; }
+    .wbs-box {
+      width: 220px;
+      background: #f9f9f9;
+      border: 2px solid #000;
+      border-radius: 8px;
+      padding: 10px 15px;
+      text-align: left;
+      font-size: 13px;
+      position: relative;
+    }
 
-  /* Vertical line from parent to children */
-  .level::before {
-    content: "";
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    width: 2px;
-    height: 40px;
-    background: #4a90e2;
-    transform: translateX(-50%);
-  }
+    .wbs-box::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      width: 2px;
+      height: 25px;
+      background: #000;
+      transform: translateX(-50%);
+    }
 
-  /* Horizontal connector line between siblings */
-  .connector {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #4a90e2;
-  }
+    .wbs-subtitle {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-  /* Remove top line for first level */
-  .level-1::before {
-    display: none;
-  }
-</style>
+    .wbs-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .wbs-list li {
+      margin: 3px 0;
+    }
+
+    .wbs-code {
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    @media print {
+      body { margin: 0; padding: 20px; }
+      .wbs-title, .wbs-box { border: 1px solid #000; box-shadow: none; }
+      .wbs-title::after, .wbs-container::before, .wbs-box::before { background: #000; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="tree">
+  <div class="wbs-title">SF to Boston Trip – Phase‑Based WBS</div>
 
-  <!-- MASTER NODE -->
-  <div class="level level-1">
-    <div class="box">SF to Boston Trip – Master WBS</div>
+  <div class="wbs-container">
+
+    <div class="wbs-box">
+      <div class="wbs-subtitle">Initiation 1.0</div>
+      <ul class="wbs-list">
+        <li><span class="wbs-code">1.1</span>Define trip objectives</li>
+        <li><span class="wbs-code">1.2</span>Assign trip coordinator</li>
+      </ul>
+    </div>
+
+    <div class="wbs-box">
+      <div class="wbs-subtitle">Planning 2.0</div>
+      <ul class="wbs-list">
+        <li><span class="wbs-code">2.1</span>Estimate budget (travel, lodging, meals)</li>
+        <li><span class="wbs-code">2.2</span>Develop travel schedule</li>
+        <li><span class="wbs-code">2.3</span>Prepare packing list & documents</li>
+      </ul>
+    </div>
+
+    <div class="wbs-box">
+      <div class="wbs-subtitle">Execute & Control 3.0</div>
+      <ul class="wbs-list">
+        <li><span class="wbs-code">3.1</span>Depart San Francisco</li>
+        <li><span class="wbs-code">3.2</span>Arrive in Boston</li>
+        <li><span class="wbs-code">3.3</span>On‑site activities & meetings</li>
+      </ul>
+    </div>
+
+    <div class="wbs-box">
+      <div class="wbs-subtitle">Closure 4.0</div>
+      <ul class="wbs-list">
+        <li><span class="wbs-code">4.1</span>Expense reporting & reconciliation</li>
+        <li><span class="wbs-code">4.2</span>Trip review & lessons learned</li>
+      </ul>
+    </div>
+
   </div>
 
-  <!-- LEVEL 2 CATEGORIES -->
-  <div class="level level-2">
-    <div class="connector"></div>
-    <div class="box">1. Project Planning</div>
-    <div class="box">2. Travel Preparation</div>
-    <div class="box">3. Execution Phase</div>
-    <div class="box">4. Post‑Trip Activities</div>
-  </div>
-
-  <!-- LEVEL 3 SUBTASKS -->
-  <div class="level level-3">
-    <div class="connector"></div>
-
-    <!-- Project Planning -->
-    <div class="box">1.1 Define scope & objectives</div>
-    <div class="box">1.2 Estimate budget (travel, lodging, meals)</div>
-    <div class="box">1.3 Develop schedule & milestones</div>
-
-    <!-- Travel Preparation -->
-    <div class="box">2.1 Book flights and hotels</div>
-    <div class="box">2.2 Arrange ground transportation</div>
-    <div class="box">2.3 Prepare packing list & documents</div>
-
-    <!-- Execution Phase -->
-    <div class="box">3.1 Departure from San Francisco</div>
-    <div class="box">3.2 Transit and arrival in Boston</div>
-    <div class="box">3.3 On‑site activities & meetings</div>
-
-    <!-- Post‑Trip Activities -->
-    <div class="box">4.1 Expense reporting & reconciliation</div>
-    <div class="box">4.2 Trip review & lessons learned</div>
-  </div>
-
-</div>
+  <p style="margin-top:40px;font-weight:700;">Phase‑Based WBS</p>
 
 </body>
 </html>
